@@ -18,7 +18,7 @@ dish: Dish;
 
     const id = +this.route.snapshot.params['id']; // + sign to convert it to number
 
-    this.dish =  this.dishservice.getDish(id);
+    this.dishservice.getDish(id).then(dish => this.dish = dish );
   }
 
   goBack(): void {
