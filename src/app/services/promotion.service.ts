@@ -6,19 +6,19 @@ import { PROMOTIONS } from '../shared/promotions';
 export class PromotionService {
 
   constructor() { }
-  getPromotions(): Promotion[] {
-    return PROMOTIONS;
+  getPromotions(): Promise<Promotion[]> {
+    return Promise.resolve(PROMOTIONS);
   }
 
-  getPromotion(id: number): Promotion {
+  getPromotion(id: number): Promise<Promotion> {
 
-    return PROMOTIONS.filter((dish) => dish.id === id)[0];
+    return Promise.resolve(PROMOTIONS.filter((dish) => dish.id === id)[0]);
 
   }
 
-  getFeaturedPromotion(): Promotion {
+  getFeaturedPromotion(): Promise<Promotion> {
 
-    return PROMOTIONS.filter((dish) => dish.featured)[0];
+    return Promise.resolve(PROMOTIONS.filter((dish) => dish.featured)[0]);
 
   }
 }
