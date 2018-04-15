@@ -27,6 +27,7 @@ import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
 import { RestangularModule, Restangular } from 'ngx-restangular';
 import { RestangularConfigFactory } from './shared/restConfig';
 import { FeedbackService } from './services/feedback.service';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { FeedbackService } from './services/feedback.service';
     HomeComponent,
     AboutComponent,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
