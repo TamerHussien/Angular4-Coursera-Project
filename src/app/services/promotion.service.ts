@@ -13,18 +13,21 @@ export class PromotionService {
 
   constructor(private http: Http, private ProcessHTTPMSg: ProcessHTTPMsgService) { }
   getPromotions(): Observable<Promotion[]> {
-    return this.http.get(baseURL + 'promotions').map(res => this.ProcessHTTPMSg.extractData(res));
+    return this.http.get(baseURL + 'promotions').map(res => this.ProcessHTTPMSg.extractData(res))
+                .catch(error => this.ProcessHTTPMSg.handleError(error));
   }
 
   getPromotion(id: number): Observable<Promotion> {
 
-    return  this.http.get(baseURL + 'promotions' + id).map(res => this.ProcessHTTPMSg.extractData(res));
+    return  this.http.get(baseURL + 'promotions' + id).map(res => this.ProcessHTTPMSg.extractData(res))
+    .catch(error => this.ProcessHTTPMSg.handleError(error));
 
   }
 
   getFeaturedPromotion(): Observable<Promotion> {
 
-    return this.http.get(baseURL + 'promotions?featured=true').map(res => this.ProcessHTTPMSg.extractData(res)[0]);
+    return this.http.get(baseURL + 'promotions?featured=true').map(res => this.ProcessHTTPMSg.extractData(res)[0])
+    .catch(error => this.ProcessHTTPMSg.handleError(error));
 
   }
 }

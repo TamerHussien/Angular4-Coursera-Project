@@ -13,10 +13,14 @@
             </p>
         </mat-card-content>
     </mat-card>
-    <div *ngIf="!dish" fxFlex fxLayoutAlign="center">
+    <div *ngIf="!(dish ||  dishErrMess)" fxFlex fxLayoutAlign="center">
         <mat-spinner></mat-spinner>
 
         <h4>Loading .... Please Wait</h4>
+    </div>
+    <div *ngIf="dishErrMess" fxFlex fxLayoutAlign="center">
+        <h2>error</h2>
+        <h4>{{dishErrMess}}</h4>
     </div>
 
     <mat-card *ngIf="promotion" fxFlex>
@@ -32,10 +36,14 @@
             </p>
         </mat-card-content>
     </mat-card>
-    <div *ngIf="!promotion" fxFlex fxLayoutAlign="center">
+    <div *ngIf="!(promotion || promoErrMess)" fxFlex fxLayoutAlign="center">
         <mat-spinner></mat-spinner>
 
         <h4>Loading .... Please Wait</h4>
+    </div>
+    <div *ngIf="promoErrMess" fxFlex fxLayoutAlign="center">
+        <h2>error</h2>
+        <h4>{{promoErrMess}}</h4>
     </div>
 
     <mat-card *ngIf="leader" fxFlex>
@@ -51,10 +59,14 @@
             <p>{{leader.description}}</p>
         </mat-card-content>
     </mat-card>
-    <div *ngIf="!leader" fxFlex fxLayoutAlign="center">
+    <div *ngIf="!(leader || leaderErrMess)" fxFlex fxLayoutAlign="center">
         <mat-spinner></mat-spinner>
 
         <h4>Loading .... Please Wait</h4>
+    </div>
+    <div *ngIf="leaderErrMess" fxFlex fxLayoutAlign="center">
+        <h2>error</h2>
+        <h4>{{leaderErrMess}}</h4>
     </div>
 
 </div>

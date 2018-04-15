@@ -64,10 +64,14 @@
                 </p>
             </mat-list-item>
         </mat-list>
-        <div *ngIf="!leaders" fxLayoutAlign="center">
+        <div *ngIf="!(leaders || errMess)" fxLayoutAlign="center">
             <mat-spinner></mat-spinner>
 
             <h4>Loading .... Please Wait</h4>
+        </div>
+        <div *ngIf="errMess" fxLayoutAlign="center">
+            <h2>error</h2>
+            <h4>{{errMess}}</h4>
         </div>
     </div>
 </div>

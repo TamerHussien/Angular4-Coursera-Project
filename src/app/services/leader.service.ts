@@ -14,19 +14,22 @@ export class LeaderService {
 
   getLeaders(): Observable<Leader[]> {
 
-    return  this.http.get(baseURL + 'leaders').map(res => this.processHTTPMsg.extractData(res));
+    return  this.http.get(baseURL + 'leaders').map(res => this.processHTTPMsg.extractData(res))
+    .catch(error => this.processHTTPMsg.handleError(error));
   }
 
   getLeader(id: number): Observable<Leader> {
 
-    return this.http.get(baseURL + 'leaders' + id).map( res => this.processHTTPMsg.extractData(res));
+    return this.http.get(baseURL + 'leaders' + id).map( res => this.processHTTPMsg.extractData(res))
+    .catch(error => this.processHTTPMsg.handleError(error));
 
   }
 
   getFeaturedLeader(): Observable<Leader> {
 
     return  this.http.get(baseURL + 'leaders?featured=true')
-          .map(res =>   this.processHTTPMsg.extractData(res)[0]);
+          .map(res =>   this.processHTTPMsg.extractData(res)[0])
+          .catch(error => this.processHTTPMsg.handleError(error));
   }
 
 }

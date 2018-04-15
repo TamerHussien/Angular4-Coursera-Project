@@ -16,8 +16,12 @@
         </mat-grid-list>
     </div>
 </div>
-<div *ngIf="!dishes" fxLayoutAlign="center">
+<div *ngIf="!(dishes || errMess)" fxLayoutAlign="center">
     <mat-spinner></mat-spinner>
 
     <h4>Loading .... Please Wait</h4>
+</div>
+<div *ngIf="errMess" fxLayoutAlign="center">
+    <h2>error</h2>
+    <h4>{{errMess}}</h4>
 </div>
